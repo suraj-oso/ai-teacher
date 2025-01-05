@@ -1,17 +1,19 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
-
-export const metadata = {
-  title: 'AI Visual Teacher',
-  description: 'Learn with AI-powered visual assistance',
-}
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <title>AI Teacher Assistant</title>
+        <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+      </head>
+      <body style={{ 
+        backgroundColor: 'black', 
+        color: 'white', 
+        fontFamily: 'monospace',
+        margin: 0,
+        padding: 0
+      }}>
+        {children}
+      </body>
     </html>
   )
 }
