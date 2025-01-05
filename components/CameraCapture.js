@@ -9,7 +9,7 @@ const CameraCapture = ({ setImage }) => {
   const videoConstraints = {
     width: 720,
     height: 480,
-    facingMode: "user"
+    facingMode: "environment"
   };
 
   const startCamera = () => {
