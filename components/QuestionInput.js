@@ -1,24 +1,13 @@
 export default function QuestionInput({ question, setQuestion }) {
-    return (
-      <div style={{ marginBottom: '2rem' }}>
-        <textarea
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-          placeholder="Enter your question here..."
-          style={{
-            width: '100%',
-            padding: '1rem',
-            backgroundColor: 'black',
-            color: 'white',
-            border: '2px solid white',
-            fontSize: '1rem',
-            fontFamily: 'monospace',
-            resize: 'vertical',
-            minHeight: '100px'
-          }}
-        />
-      </div>
-    )
-  }
-  
-  
+  return (
+    <div>
+      <textarea
+        value={question}
+        onChange={(e) => setQuestion(e.target.value)}
+        placeholder="Enter your question here..."
+        className="w-full min-h-[120px] p-3 sm:p-4 bg-[#FFFBE6] border-2 border-black font-mono resize-y text-sm sm:text-base"
+      />
+    </div>
+  )
+}
+
