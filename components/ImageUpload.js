@@ -16,32 +16,11 @@ export default function ImageUpload({ setImage }) {
     }
   }
 
-  const handleDrop = (e) => {
-    e.preventDefault()
-    const file = e.dataTransfer.files[0]
-    if (file && file.type.startsWith('image/')) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        setPreview(reader.result)
-        setImage(reader.result)
-      }
-      reader.readAsDataURL(file)
-    }
-  }
-
-  const handleDragOver = (e) => {
-    e.preventDefault()
-  }
-
   return (
-    <div 
-      style={{ marginBottom: '2rem' }}
-      onDrop={handleDrop}
-      onDragOver={handleDragOver}
-    >
+    <div>
       <input 
         type="file" 
-        accept="image/*"
+        accept="image/*" 
         onChange={handleImageChange}
         style={{ display: 'none' }}
         id="image-upload"
@@ -49,19 +28,19 @@ export default function ImageUpload({ setImage }) {
       />
       <label 
         htmlFor="image-upload"
-        style={{
-          border: '2px solid white',
-          padding: '1rem',
-          display: 'inline-block',
-          cursor: 'pointer'
-        }}
+        className="block w-full relative group cursor-pointer"
       >
-        UPLOAD PROBLEM IMAGE
+        <div className="absolute -inset-1 bg-black transition-all group-hover:-inset-2"></div>
+        <span className="relative block bg-[#FFFBE6] p-3 sm:p-4 border-2 border-black text-center font-bold text-sm sm:text-base">
+          UPLOAD PROBLEM IMAGE
+        </span>
       </label>
-      <p style={{ marginTop: '0.5rem' }}>Or drag and drop an image here</p>
       {preview && (
-        <div style={{ marginTop: '1rem' }}>
-          <img src={preview} alt="Preview" style={{ maxWidth: '100%', border: '2px solid white' }} />
+        <div className="mt-4 relative">
+          <div className="absolute -inset-1 bg-black"></div>
+          <div className="relative border-2 border-black overflow-hidden">
+            <img src={preview} alt="Preview" className="w-full h-auto" />
+          </div>
         </div>
       )}
     </div>
